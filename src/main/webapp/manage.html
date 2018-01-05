@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>floatUi</title>
+    <link rel="stylesheet" href="css/bootstrap.css" >
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <style>
+        body {
+            /*background: url(img/D_vladstudio_014.jpg); repeat scroll top left;*/
+        }
+
+        .appStore {
+            position: fixed;
+            /*margin-bottom: 30px;*/
+            /*margin-left: 30%;*/
+            /*margin-right: 30%;*/
+            bottom: 10px;
+            opacity: 0.8;
+            top: 40%;
+            left: 30%;
+            width: 40%;
+            height: 200px;
+            border-radius: 10px;
+            background-color: silver;
+        }
+
+        .change {
+            position: fixed;
+            /*margin-bottom: 30px;*/
+            /*margin-left: 30%;*/
+            /*margin-right: 30%;*/
+            bottom: 10px;
+            opacity: 0.8;
+            top: 40%;
+            left: 30%;
+            width: 40%;
+            border: solid;
+            border-color: gold;
+            /*height: 200px;*/
+            border-radius: 10px;
+            text-align: center;
+            padding: 10px;
+            /*background-color: silver;*/
+        }
+
+        .children {
+            border-radius: 10px;
+            display: block;
+            width: 46%;
+            height: 80px;
+            margin-left: 2%;
+            margin-right: 2%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: green;
+            float: left;
+            text-align: center;
+            font-size: 30px;
+            line-height: 85px;
+        }
+
+        .children:hover {
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+
+<body>
+<div id="mybody" class="bodys">
+    <div class="appStore">
+        <div id="btn1" onclick="upload(0)" class="children">系统控制率</div>
+        <div id="btn2" onclick="upload(1)" class="children">数据接入统计</div>
+        <div id="btn3" onclick="wifiData(0)" class="children">wifi数据修改</div>
+        <div id="btn4" onclick="wifiData(1)" class="children">wifi数据增加</div>
+    </div>
+</div>
+<div id="table" hidden="hiddens">
+    <h2 id="title" align="center" style="margin-bottom: 0px">修改</h2>
+    <h3 align="right" style="margin-top: 0px;margin-right: 20px;height: 20px">
+        <small><input type="date" id="time"></small>
+    </h3>
+    <form id="forms" class="form-horizontal" style="margin-top: 5px;border: solid;border-radius: 5px; width: 100%;">
+        <input id="realTime" type="text" name="date" hidden="hidden">
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="row">
+                    <label for="zhengzhou" class="col-md-2 control-label">郑州</label>
+                    <div class="col-md-10">
+                        <select class="form-control" id="zhengzhou">
+                            <option value="是">是</option>
+                            <option value="否">否</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <label for="kaifeng" class="col-md-2 control-label">开封</label>
+                    <div class="col-md-10">
+                        <select class="form-control" id="kaifeng" style="text-align: center">
+                            <option value="是">是</option>
+                            <option value="否">否</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <label for="luoyang" class="col-md-2 control-label">洛阳</label>
+                    <div class="col-md-10">
+                        <select class="form-control" id="luoyang">
+                            <option value="是">是</option>
+                            <option value="否">否</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <label for="pingdings" class="col-md-2 control-label">平地山</label>
+                    <div class="col-md-10">
+                        <select class="form-control" id="pingdings">
+                            <option value="是">是</option>
+                            <option value="否">否</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label for="anyang" class="col-md-2 control-label">安阳</label>
+                    <div class="col-md-10">
+                        <select class="form-control" id="anyang">
+                            <option value="是">是</option>
+                            <option value="否">否</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label for="hebi" class="col-md-2 control-label">鹤壁</label>
+                    <div class="col-md-10">
+                        <select class="form-control" id="hebi">
+                            <option value="是">是</option>
+                            <option value="否">否</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label for="xinxiang" class="col-md-2 control-label">新乡</label>
+                    <div class="col-md-10">
+                        <select class="form-control" id="xinxiang">
+                            <option value="是">是</option>
+                            <option value="否">否</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label for="jiaozuo" class="col-md-2 control-label">焦作</label>
+                    <div class="col-md-10">
+                        <select class="form-control" id="jiaozuo">
+                            <option value="是">是</option>
+                            <option value="否">否</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label for="puyang" class="col-md-2 control-label">濮阳</label>
+                    <div class="col-md-10">
+                        <select class="form-control" id="puyang">
+                            <option value="是">是</option>
+                            <option value="否">否</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="row">
+                    <label for="xuchang" class="col-md-2 control-label">许昌</label>
+                    <div class="col-md-10">
+                        <select class="form-control" id="xuchang">
+                            <option value="是">是</option>
+                            <option value="否">否</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label for="luohe" class="col-md-2 control-label">漯河</label>
+                    <div class="col-md-10">
+                        <select class="form-control" id="luohe">
+                            <option value="是">是</option>
+                            <option value="否">否</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label for="sanmenxia" class="col-md-2 control-label">三门峡</label>
+                    <div class="col-md-10">
+                        <select class="form-control" id="sanmenxia">
+                            <option value="是">是</option>
+                            <option value="否">否</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label for="nanyang" class="col-md-2 control-label">南阳</label>
+                    <div class="col-md-10">
+                        <select class="form-control" id="nanyang">
+                            <option value="是">是</option>
+                            <option value="否">否</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label for="shangqiu" class="col-md-2 control-label">商丘</label>
+                    <div class="col-md-10">
+                        <select class="form-control" id="shangqiu">
+                            <option value="是">是</option>
+                            <option value="否">否</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label for="xinyang" class="col-md-2 control-label">信阳</label>
+                    <div class="col-md-10">
+                        <select class="form-control" id="xinyang">
+                            <option value="是">是</option>
+                            <option value="否">否</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label for="zhoukou" class="col-md-2 control-label">周口</label>
+                    <div class="col-md-10">
+                        <select class="form-control" id="zhoukou">
+                            <option value="是">是</option>
+                            <option value="否">否</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label for="zhumadian" class="col-md-2 control-label">驻马店</label>
+                    <div class="col-md-10">
+                        <select class="form-control" id="zhumadian">
+                            <option value="是">是</option>
+                            <option value="否">否</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label for="jiyuan" class="col-md-2 control-label">济源</label>
+                    <div class="col-md-10">
+                        <select class="form-control" id="jiyuan">
+                            <option value="是">是</option>
+                            <option value="否">否</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button id="upData" type="button" class="btn btn-info btn-block">提交</button>
+    </form>
+</div>
+<form id="uploadform" hidden="true">
+    <input type="file" hidden="true" id="uploadButton">
+</form>
+</body>
+<script>
+    var changeOrAdd;
+    $("#btn3").click(function() {
+        $("#mybody").fadeOut("slow", function() {
+            $("#table").slideToggle("slow");
+        });
+
+    });
+    $("#btn4").click(function() {
+        $("#mybody").fadeOut("slow", function() {
+            $("#table").slideToggle("slow");
+        });
+    });
+    var url=["/springboot/upload/file","/springboot/wzdatain/upload"];
+    var index=0;
+    function upload(sindex) {
+        index=sindex;
+        $('#uploadButton').click();
+    };
+    $(function(){
+//        $("#zhengzhou").val("否");
+        $("#time").change(function () {
+           $("#realTime").val($("#time").val());
+           if (changeOrAdd===0){
+               console.log(changeOrAdd);
+                loadData();
+           }
+        });
+        $('#uploadButton').change(function() {
+            var formData = new FormData();
+            var file = this.files[0];
+            formData.append("file",file);
+            $.ajax({
+                type: "post",
+                url: url[index],
+                data: formData,
+                async: true,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    $('#uploadform')[0].reset();
+                    alert(data);
+                },
+                error: function(data) {
+                    alert("上传失败！");
+                }
+            });
+        });
+
+    })
+    function loadData() {
+        var time = $("#time").val();
+        console.log(time);
+        $.ajax({
+            type: "post",
+            url: "/springboot/WifiDataUp/getOne",
+            data: {time:time},
+            success:function(data){
+                console.log(data);
+                $("#zhengzhou").val(data['zhengzhou']);
+                $("#kaifeng").val(data['kaifeng']);
+                $("#luoyang").val(data['luoyang']);
+                $("#pingdings").val(data['pingdings']);
+                $("#anyang").val(data['anyang']);
+                $("#hebi").val(data['hebi']);
+                $("#xinxiang").val(data['xinxiang']);
+                $("#jiaozuo").val(data['jiaozuo']);
+                $("#puyang").val(data['puyang']);
+                $("#xuchang").val(data['xuchang']);
+                $("#luohe").val(data['luohe']);
+                $("#sanmenxia").val(data['sanmenxia']);
+                $("#nanyang").val(data['nanyang']);
+                $("#shangqiu").val(data['shangqiu']);
+                $("#xinyang").val(data['xinyang']);
+                $("#zhoukou").val(data['zhoukou']);
+                $("#zhumadian").val(data['zhumadian']);
+                $("#jiyuan").val(data['jiyuan']);
+//                    $("#table").show()
+            },
+            error:function (data) {
+                console.log(data)
+            }
+        });
+    }
+    function wifiData(num) {
+        changeOrAdd=num;
+        var dates;
+        $.ajax({
+            type: "post",
+            url: "/WifiDataUp/maxDate",
+            data: {},
+            async:false,
+            success:function (data) {
+                dates=data;
+                console.log(data);
+            },
+            error:function (data) {
+                console.log("/WifiDataUp/getmaxDate 请求错误！")
+            }
+        });
+
+        if (num===0){
+            $("#title").text("修改")
+            if (dates==="")
+                return;
+            $("#time").attr("max",dates);
+            dates==null;
+        }
+        else{
+            $("#title").text("增加");
+            if (dates==="")
+                return;
+            var date = new Date(dates.substr(0,4)+" "+dates.substr(5,2)+" "+dates.substr(8,2))
+            date.setDate(date.getDate()+1);
+//            console.log("time before"+$("#realTime").val());
+            $("#time").val(date.toLocaleString().substr(0,10).replace(/\//g,"-"));
+            $("#realTime").val($("#time").val());
+            console.log("time after"+$("#realTime").val());
+            $("#time").attr("disabled","disabled");
+            date==null;
+            dates==null;
+        }
+    }
+    $("#upData").click(function () {
+        var element = $("#table select");
+        var alldata={};
+        for (var i=0;i<element.length;i++) {
+            alldata[$(element[i]).attr("id")] =$(element[i]).val();
+        }
+        alldata["date"]=$("#realTime").val();
+        $.ajax({
+            type: "post",
+            url: "/springboot/WifiDataUp/setData",
+            data: alldata,
+            success:function (data) {
+                alert("提交成功");
+                $("#forms")[0].reset();
+                $("#table").slideUp("slow",function () {
+                    $("#mybody").fadeToggle("slow");
+
+                })
+            },
+            error:function (data) {
+                console.log("/WifiDataUp/setData 请求错误！")
+            }
+        });
+    });
+</script>
+
+</html>

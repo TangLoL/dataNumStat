@@ -1,0 +1,50 @@
+server:
+#  address: 88.88.88.107
+  port: 8088
+  context-path: /springboot
+  compression:
+    enabled: true
+  connection-timeout: 60000
+  tomcat:
+    uri-encoding: utf-8
+    max-threads: 1000
+    max-connections: 100
+    basedir: /temp/springboot/
+  session:
+    timeout: 60
+
+mysql:
+  db-url: jdbc:mysql://localhost:3306/zyf
+  jdbc-name: com.mysql.jdbc.Driver
+  user-name: root
+  password: qq125680
+
+#debug: true
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+#    url: jdbc:oracle:thin:@//15.56.12.137:1521/ora11g
+    username: bigdata
+    password: bigdata
+    url: jdbc:oracle:thin:@//88.88.88.103:1521/orcl
+
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/zyf
+#    username: root
+#    password: qq125680
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+#    database-platform: ORACLE
+#    database: oracle
+
+
+
+mybatis:
+#  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.fiberhomeme.entity
+
+#  config: classpath:mybatis-config.xml
+#  type-handlers-package: com.fiberhomeme.mapper

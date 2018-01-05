@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#time").attr("value",new Date())
+
+            $("#file2").change(function () {
+                var formData = new FormData();
+                var file = this.files[0];
+                formData.append("file",file);
+                formData.append("time",$("#time").val())
+                console.log(formData.getAll("file"));
+                console.log(formData.getAll("time"))
+                $.ajax({
+                    type: "post",
+                    url: "/wzdatain/upload",
+                    data: formData,
+                    async: true,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function(data){
+                        console.log(data);
+                        alert(data);
+                        // $("#ssd").append(JSON.stringify(data));
+                    },
+                    error:function () {
+                        alert("上传失败");
+                    }
+                });
+            });
+
+
+            $("#upload").click(function () {
+                    $("#file2").click();
+                }
+            );
+
+            $("#showlist").click(function () {
+                console.log($("#time2").val())
+                $.get("wzdatain/showlist",{time:$("#time2").val()},function (data) {
+                    console.log(data);
+                    $("#ssd").append(JSON.stringify(data));
+                })
+            });
+        })
+
+    </script>
+</head>
+<body>
+<!--<form action="/test/upload" method="post" enctype="multipart/form-data">-->
+    <!--<input type="file" name="file" id="file"/>-->
+    <!--<input type="submits"  value="上传1"/>-->
+<!--</form>-->
+
+<form  id="fileform" hidden = true>
+
+    <input type="file" name="file2" id="file2" />
+</form>
+<input type="date" id="time" value="">
+<input type="button" value="上传2" id="upload"/>
+<div id="ssd">
+
+</div>
+
+<input type="date" id="time2" > <input type="button" id="showlist" value="获取内容">
+</body>
+</html>

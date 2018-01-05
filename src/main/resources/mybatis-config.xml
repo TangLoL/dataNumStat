@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<settings>
+		<setting name="cacheEnabled" value="true"/>
+		<setting name="multipleResultSetsEnabled" value="true"/>
+		<!--最大事务数量-->
+		<!--<setting name="maxTransactions" value="1000"/>-->
+		<!--最大请求并发数-->
+		<!--<setting name="maxRequests" value="1000"/>-->
+		<!--最大session数-->
+		<!--<setting name="maxSessions" value="1000"/>-->
+		<!--开启延迟加载-->
+		<!--<setting name="lazyLoadingEnabled" value="true"/>-->
+		<!--开启错误日志-->
+		<!--<setting name="errorTracingEnabled" value="true"/>-->
+	</settings>
+
+	<mappers>
+		<mapper resource="mappers/BookDao.xml"/>
+	</mappers>
+	<!--分页查询-->
+	<!--PaginatedList list =-->
+	<!--sqlMap.queryForPaginatedList (“getProductList”, null, 10);-->
+	<!--list.nextPage();-->
+	<!--list.previousPage();-->
+</configuration>

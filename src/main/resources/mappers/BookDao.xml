@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fiberhome.mapper.BookDao">
+    <!--auto generated Code-->
+    <resultMap id="BookResult" type="com.fiberhome.entity.Book">
+        <result column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="author" property="author"/>
+    </resultMap>
+    <!---->
+    <cache flushInterval="60000" readOnly="true" size="10000" eviction="FIFO" />
+    <!--auto generated Code-->
+    <select id="findByName" parameterType="String" resultMap="BookResult">
+        select * from book where userName=#{name}
+    </select>
+
+    <select id="randomlist" parameterType="Integer" resultMap="BookResult">
+        SELECT * from book limit #{n}
+    </select>
+</mapper>
+
